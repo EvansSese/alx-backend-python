@@ -2,13 +2,10 @@
 """Function to return first item of list"""
 
 
-from typing import List, Optional, TypeVar
+from typing import Sequence, Any, Union, Optional
 
 
-T = TypeVar('T')
-
-
-def safe_first_element(lst: List[T]) -> Optional[T]:
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
     """
     Get the first element of the list safely.
 
