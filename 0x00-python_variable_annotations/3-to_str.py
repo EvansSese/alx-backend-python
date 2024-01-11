@@ -3,6 +3,7 @@
 
 
 def to_str(n: float) -> str:
+    """Function to return str representation of a float"""
     return str(n)
 
 
