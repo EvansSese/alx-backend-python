@@ -2,26 +2,25 @@
 """Safely get value"""
 
 
-from typing import TypeVar, Dict, Any, Optional
-
-K = TypeVar('K')
-V = TypeVar('V')
+from typing import TypeVar, Mapping, Any, Union, Optional
+T = TypeVar('T')
 
 
-def safely_get_value(dct: Dict[K, V], key: K,
-                     default: Optional[V] = None) -> V:
+def safely_get_value(dct: Mapping[Any, T], key: Any,
+                     default: Optional[T] = None) -> Union[T, None]:
     """
     Safely get the value associated with the key from the dictionary.
 
     Parameters:
-    - dct (Dict[K, V]): A dictionary with keys of type K and values of type V.
-    - key (K): The key to look up in the dictionary.
-    - default (Optional[V]): The default value to return if the key is not
-    found (default is None).
+    - dct (Mapping[Any, T]): A mapping (e.g., dictionary) with keys of
+    any type and values of type T.
+    - key (Any): The key to look up in the dictionary.
+    - default (Optional[T]): The default value to return if the key
+    is not found (default is None).
 
     Returns:
-    - V: The value associated with the key, or the default value if the key
-    is not found.
+    - Union[T, None]: The value associated with the key, or the default
+    value if the key is not found.
     """
     if key in dct:
         return dct[key]
