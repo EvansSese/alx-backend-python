@@ -15,5 +15,4 @@ def measure_time(n: int, max_delay: int) -> float:
 
 
 if __name__ == "__main__":
-    measure_time(0,0)
-    
+    measure_time(0, 0)
