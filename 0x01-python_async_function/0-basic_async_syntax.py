@@ -7,7 +7,8 @@ import random
 
 async def wait_random(max_delay=10):
     """Async wait_random function/coroutine"""
-    return await asyncio.sleep(random.uniform(0, max_delay))
+    rand_wait = random.uniform(0, max_delay)
+    return await asyncio.sleep(rand_wait)
 
 
 if __name__ == "__main__":
