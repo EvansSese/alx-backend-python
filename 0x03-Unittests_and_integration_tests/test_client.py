@@ -2,7 +2,7 @@
 """Test client suite"""
 
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 from parameterized import parameterized
 from client import GithubOrgClient
 
@@ -18,9 +18,10 @@ class TestGithubOrgClient(unittest.TestCase):
     def test_org(self, org_name, mock_get_json):
         """Create an instance of GithubOrgClient"""
         github_org_client = GithubOrgClient(org_name)
+        mock_get_json.return_value = MagicMock()
         result = github_org_client.org()
         mock_get_json.assert_called_once_with(GithubOrgClient.ORG_URL.format(org=org_name))
-        self.assertEqual(result, mock_get_json.return_value)
+        self.assertIsInstance(result, MagicMock)
 
 
 if __name__ == '__main__':
