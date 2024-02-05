@@ -32,7 +32,7 @@ class TestGetJson(unittest.TestCase):
         ("http://holberton.io", {"payload": False}),
     ])
     @patch('requests.get')
-    def test_get_json(self, test_url, test_payload):
+    def test_get_json(self, test_url, test_payload, mock_get):
         """Create a Mock object with json method"""
         mock_response = Mock()
         mock_response.json.return_value = test_payload
