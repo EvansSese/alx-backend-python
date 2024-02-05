@@ -59,13 +59,12 @@ class TestMemoize(unittest.TestCase):
 
     @patch.object(TestClass, 'a_method')
     def test_memoize(self, mock_a_method):
-        """Create an instance of TestClass"""
         test_instance = self.TestClass()
         result1 = test_instance.a_property
         result2 = test_instance.a_property
         mock_a_method.assert_called_once()
+        self.assertEqual(result1, result2)
         self.assertEqual(result1, 42)
-        self.assertEqual(result2, 42)
 
 
 if __name__ == "__main__":
